@@ -1,43 +1,508 @@
-.pokemon_card_info {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 10px 10px 60px #e9e8e7;
-  flex: 0 0 300px;
-  margin-left: 20px;
-  margin-right: 60px;
+$red: rgb(211, 10, 64);
+$darkred: rgb(144, 6, 42);
+$lightgray: rgb(227, 227, 227);
+$darkgray: rgb(131, 133, 132);
+$darkergray: rgb(44, 44, 44);
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.search {
+  &-container {
+    background: rgb(237,113,101); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(237,113,101,1) 80%, rgba(103,104,108,1) 81%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(237,113,101,1) 80%,rgba(103,104,108,1) 81%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(237,113,101,1) 80%,rgba(103,104,108,1) 81%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    display: inline-block;
+
+    margin: 20px;
+    border-radius: 5px;
+    display: inline-flex;
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+  }
+
+  &-box {
+    font-family: "VT323";
+    font-size: 22px;
+    border: none;
+    padding: 10px;
+    margin: 5px 0 5px 5px;
+    border-radius: 5px;
+  }
+
+  &-button {
+    background: #3d3d3d;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+
+    .icon {
+      color: white;
+    }
+  }
+}
+
+.pokedex {
+  width: 1000px;
+  height: 670px;
+  margin: auto;
   position: relative;
-  text-align: center;
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    border-radius: 40px 15px 15px 40px;
+    background: $red;
+    border-left: 20px solid $darkred;
+    border-bottom: 12px solid $darkred;
+  }
+
+  &-lights {
+    &-container {
+      height: 100px;
+      width: 100%;
+      display: flex;
+    }
+
+    &-lg {
+      background: rgb(168,242,251); /* Old browsers */
+      //background: -moz-radial-gradient(center, ellipse cover, rgba(168,242,251,1) 0%, rgba(13,241,252,1) 50%, rgba(14,188,212,1) 100%); /* FF3.6-15 */
+      //background: -webkit-radial-gradient(center, ellipse cover, rgba(168,242,251,1) 0%,rgba(13,241,252,1) 50%,rgba(14,188,212,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: radial-gradient(ellipse at center, rgba(168,242,251,1) 0%,rgba(13,241,252,1) 50%,rgba(14,188,212,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      border-radius: 50%;
+      border-top: 5px solid white;
+      border-right: 5px solid white;
+      border-bottom: 10px solid white;
+      border-left: 10px solid white;
+      height: 60px;
+      width: 60px;
+      margin: 10px 0 10px 10px;
+    }
+
+    &-sm-container {
+      display: flex;
+      padding-top: 5px;
+    }
+
+    &-sm-light {
+      background: white;
+      border-radius: 50%;
+      margin: 7px;
+      height: 25px;
+      width: 25px;
+
+      &.one {
+        background: rgb(237,55,67); /* Old browsers */
+        //background: -moz-radial-gradient(center, ellipse cover, rgba(237,55,67,1) 0%, rgba(170,5,21,1) 100%); /* FF3.6-15 */
+        //background: -webkit-radial-gradient(center, ellipse cover, rgba(237,55,67,1) 0%,rgba(170,5,21,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, rgba(237,55,67,1) 0%,rgba(170,5,21,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
+
+      &.two {
+        background: rgb(222,226,90); /* Old browsers */
+        //background: -moz-radial-gradient(center, ellipse cover, rgba(222,226,90,1) 0%, rgba(142,153,59,1) 100%); /* FF3.6-15 */
+        //background: -webkit-radial-gradient(center, ellipse cover, rgba(222,226,90,1) 0%,rgba(142,153,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, rgba(222,226,90,1) 0%,rgba(142,153,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
+
+      &.three {
+        background: rgb(169,247,76); /* Old browsers */
+        //background: -moz-radial-gradient(center, ellipse cover, rgba(169,247,76,1) 0%, rgba(102,166,56,1) 100%); /* FF3.6-15 */
+        //background: -webkit-radial-gradient(center, ellipse cover, rgba(169,247,76,1) 0%,rgba(102,166,56,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, rgba(169,247,76,1) 0%,rgba(102,166,56,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
+    }
+  }
+
+  &-screen {
+    position: relative;
+    background: $lightgray;
+    border-radius: 20px;
+    border-left: 7px solid $darkgray;
+    border-bottom: 7px solid $darkgray;
+    width: 400px;
+    height: 320px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:before {
+      content:' ';
+      left: -20px;
+      top: 275px;
+      position: absolute;
+      width: 110px;
+      height: 8px;
+      transform: rotate(45deg);
+      background-color: $darkgray;
+    }
+
+    &-cut {
+      position: absolute;
+      top: 370px; right: 860px;
+      border-top: 80px solid transparent;
+      border-left: 80px solid $red;
+      z-index: 1;
+    }
+
+    &-top {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-light {
+      background: $red;
+      width: 10px;
+      height: 10px;
+      margin: 15px 10px;
+      border-radius: 50%;
+    }
+
+    &-image-container {
+      background: white;
+      border-radius: 10px;
+      height: 200px;
+      width: 330px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-image {
+      height: 100%;
+    }
+
+    &-bottom {
+      height: 80px;
+      width: 65%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-button {
+      height: 35px;
+      width: 35px;
+      background: $red;
+      border-radius: 50%;
+    }
+
+    &-vents {
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-vent {
+      width: 100%;
+      height: 3px;
+      border-radius: 10px;
+      background: black;
+      margin: 3px;
+    }
+  }
+
+  &-controls {
+    width: 80%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+
+    &-button {
+      background: $darkergray;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      border-left: 10px solid black;
+      border-bottom: 10px solid black;
+      margin-right: 10px;
+    }
+
+    &-longButton {
+      height: 15px;
+      width: 70px;
+      background: white;
+      margin: 15px;
+      border-radius: 10px;
+    }
+
+    .redButton {
+      background: rgb(254, 104, 102);
+    }
+
+    .blueButton {
+      background: rgb(14, 111, 128);
+    }
+
+  }
+
+  &-pad {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 480px;
+    left: 400px;
+
+    &-v {
+      height: 100%;
+      width: 30%;
+      border-left: 8px solid black;
+      border-bottom: 8px solid black;
+      border-radius: 5px;
+      background: $darkergray;
+      position: absolute;
+      left: -8px;
+    }
+
+    &-h {
+      height: 30%;
+      width: 100%;
+      background: $darkergray;
+      border-radius: 5px;
+      border-left: 8px solid black;
+      border-bottom: 8px solid black;
+      top: 35px;
+      left: -43px;
+      position: absolute;
+    }
+
+    &-middle {
+      height: 100%;
+      width: 30%;
+      border-radius: 5px;
+      background: $darkergray;
+      position: absolute;
+      z-index: 1;
+
+      &-circle {
+        border: 1px solid black;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 40px;
+        left: 2px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &-smallScreen {
+    background: rgb(95, 196, 128);
+    height: 110px;
+    width: 180px;
+    border-radius: 10px;
+    position: absolute;
+    top: 520px;
+    left: 130px;
+    padding: 10px;
+  }
+
+  &-right {
+    height: 90%;
+    width: 50%;
+    position: absolute;
+    left: 520px;
+    top: 50px;
+    border-radius: 0 0 40px 0;
+    background: rgb(191, 6, 56);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-info-container {
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 130px;
+    border-radius: 7px;
+    background: rgb(8, 64, 53);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .pokemon-name {
+      font-family: "VT323";
+      font-size: 32px;
+      font-weight: normal;
+      color: white;
+      margin: 0;
+    }
+
+    .pokemon-types {
+      font-family: "VT323";
+      font-size: 32px;
+      color: white;
+      margin: 0;
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: inline;
+        margin: 5px;
+      }
+    }
+  }
+
+  &-buttons {
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+
+    &-shadow {
+      background: rgb(69, 127, 200);
+      width: 300px;
+      height: 100px;
+      border-radius: 10px;
+      position: absolute;
+      top: 257px;
+      left: 97px;
+    }
+  }
+
+  &-button {
+    height: 50px;
+    margin: 1px;
+    box-sizing: border-box;
+    width: calc((300px / 5) - 2px);
+    background: rgb(34, 196, 234);
+
+    &.first {
+      border-radius: 10px 0 0 0;
+    }
+
+    &.fifth {
+      border-radius: 0 10px 0 0;
+    }
+
+    &.sixth {
+      border-radius: 0 0 0 10px;
+    }
+
+    &.tenth {
+      border-radius: 0 0 10px 0;
+    }
+  }
+
+  &-longButtons {
+    height: 20px;
+    width: 110px;
+    position: absolute;
+    top: 365px;
+    left: 285px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-longButton {
+    height: 13px;
+    width: 52px;
+    background: $darkergray;
+    border-radius: 10px;
+  }
+
+  &-dualButtons {
+    display: flex;
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    top: 400px;
+    left: 100px;
+
+    &-shadow {
+      background: $darkgray;
+      width: 120px;
+      height: 50px;
+      border-radius: 10px;
+      position: absolute;
+      top: 406px;
+      left: 97px;
+    }
+  }
+
+  &-dualButton {
+    background: $lightgray;
+    width: 50%;
+    height: 100%;
+    margin: 1px;
+
+    &.first {
+      border-radius: 10px 0 0 10px;
+    }
+
+    &.second {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+
+  &-goldButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 425px;
+    left: 355px;
+    background: rgb(199,189,118); /* Old browsers */
+    //background: -moz-radial-gradient(center, ellipse cover, rgba(199,189,118,1) 1%, rgba(146,135,79,1) 100%); /* FF3.6-15 */
+    //background: -webkit-radial-gradient(center, ellipse cover, rgba(199,189,118,1) 1%,rgba(146,135,79,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(199,189,118,1) 1%,rgba(146,135,79,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+
+  &-blackButtons {
+    width: 320px;
+    height: 60px;
+    position: absolute;
+    top: 510px;
+    color: white;
+    font-size: 140%;
+    font-family: Gubbi;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-blackButton {
+    width: 50%;
+    border-radius: 10px;
+    height: 100%;
+    margin: 0 10px;
+    background: $darkergray;
+  }
 }
 
-.pokemon_card_header {
-  position: relative;
+// Light blinking classes
+
+.blink {
+  animation: blink .5s linear infinite;
 }
 
-.pokemon_card_img {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.pokemon_card_id {
-  color: #e9e8e7;
-  font-size: 900%;
-  font-weight: 500;
-}
-
-.pokemon_card_name{
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: -10px;
-}
-
-.pokemon_card_moves{
-  margin-top: 50px;
-  padding-bottom: 20px;
+@keyframes blink {
+  0% {
+    -webkit-box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
+    box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
+  }
+  100% {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
 }
