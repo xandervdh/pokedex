@@ -12,20 +12,29 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<template>
-    <li class="pokemon">
-        <h4 class="title">
-            <strong class="name"></strong>
-            <em class="id"></em>
-        </h4>
-        <img src="" alt="" id="sprite">
-        <p class="powers"></p>
-    </li>
-</template>
-
 <div id="input">
     <label for="pokemonInput">What are you looking for?</label>
     <input type="text" id="pokemonInput">
+    <button id="run">Send</button>
+</div>
+<div id="target">
+    <div class="pokemon_card_info">
+        <div class="pokemon_card_header">
+            <div class="pokemon_card_img"><img
+                    src=""
+                    alt=""></div>
+            <div class="pokemon_card_id"></div>
+        </div>
+        <!--<p class="pokemon-card__genus">Seed Pokémon</p>-->
+        <div class="pokemon_card_name"></div>
+        <!--<div class="pokemon-types"><span class="pokemon-type -grass">grass</span><span class="pokemon-type -poison">poison</span>
+        </div>
+        <div class="pokemon-stat -height">2.0m</div>
+        <div class="pokemon-stat -weight">100.0kg</div>
+        <div class="pokemon-card__abilities"><span class="pokemon-card__ability">Overgrow</span><span
+                class="pokemon-card__ability">Chlorophyll</span></div>-->
+        <div class="pokemon_card_moves"></div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
