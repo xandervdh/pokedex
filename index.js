@@ -5,14 +5,18 @@
     let moves_target = document.getElementById("pokemon_card_moves");
     let id;
     let target = document.getElementById("target");
+    let target_bottom = document.getElementById("pokedex-bottom");
+    let url = "https://pokeapi.co/api/v2/pokemon/";
 
-
+    function fetchPokemon(input, func){
+        fetch(input)
+            .then(response => response.json())
+            .then(data => func(data))
+    }
     document.getElementById("run").addEventListener("click", function () {
         checkInput();
-
-        fetch("https://pokeapi.co/api/v2/pokemon/" + input)
-            .then(response => response.json())
-            .then(data => appendData(data))
+        let pokemon = url + input;
+        fetchPokemon(pokemon, appendData);
 
         function appendData(data) {
             console.log(data);
@@ -54,9 +58,7 @@
 
     function findEvolution(data){
         let chain = data.evolution_chain.url;
-        fetch(chain)
-            .then(response => response.json())
-            .then(data => showEvolution(data))
+        fetchPokemon(chain, showEvolution);
     }
 
     function showEvolution(data){
@@ -73,30 +75,22 @@
             evoData = evoData['evolves_to'][0];
         } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
 
-        console.log(evoChain);
-        let target_bottom = document.getElementById("pokedex-bottom");
-        evoChain.forEach(function(evo) {
 
-            const evoDiv = document.createElement('div');
-            evoDiv.className = 'pokemon';
+        for (let i = 0; i < evoChain.length; i++){
+            let evoPokemon = evoChain[i].species_name;
+            let pokemon = url + evoPokemon;
+            fetchPokemon(pokemon, printEvolution);
+        }
+        target_bottom.innerHTML = "";
+    }
 
-            // Get sprites for each evolution stage
-            const pokemon = pokemonArray.filter(data => data.name === evo.species_name);
-            const evoImg = document.createElement('img');
-            evoImg.src = pokemon[0].sprites.front_default;
-
-            // Get name
-            const evoName = document.createElement('h3');
-            evoName.textContent = evo.species_name;
-
-            // Append everything
-            target_bottom.appendChild(evoImg);
-            target_bottom.appendChild(evoName);
-            target_bottom.appendChild(evoDiv);
-        })
-
-        let template = document.getElementById("evoTemplate").content.cloneNode(true);
-        //template.querySelector(".evolution_image").innerHTML = data.evolvesTo
+    function printEvolution(data) {
+        let evolution = document.getElementById("evoTemplate").content.cloneNode(true);
+        evolution.querySelector(".evolution_image").setAttribute("src", data.sprites.front_default);
+        evolution.querySelector(".evolution_image").setAttribute("alt", "sprite of " + data.name);
+        evolution.querySelector(".evolution_name").innerHTML = data.name;
+        evolution.querySelector(".evolution_id").innerHTML = data.id;
+        target_bottom.appendChild(evolution);
     }
 
     function checkInput() {
