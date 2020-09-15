@@ -7,6 +7,8 @@
     let target = document.getElementById("target");
     let target_bottom = document.getElementById("pokedex-bottom");
     let url = "https://pokeapi.co/api/v2/pokemon/";
+    let arrow;
+
 
     function fetchPokemon(input, func){
         fetch(input)
@@ -15,6 +17,7 @@
     }
     document.getElementById("run").addEventListener("click", function () {
         checkInput();
+        target_bottom.innerHTML = "";
         let pokemon = url + input;
         fetchPokemon(pokemon, appendData);
 
@@ -84,16 +87,15 @@
                 evoData = evoData['evolves_to'][0];
             } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
 
-
             for (let i = 0; i < evoChain.length; i++){
                 evoPokemon = evoChain[i].species_name;
                 pokemon = url + evoPokemon;
+
                 fetchPokemon(pokemon, printEvolution);
             }
 
-
         }
-        target_bottom.innerHTML = "";
+
     }
 
     function printEvolution(data) {
