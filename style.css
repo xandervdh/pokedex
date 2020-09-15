@@ -442,5 +442,20 @@ body {
     box-shadow: none;
   }
 }
+#pokedex-bottom {
+  display: none;
+  background-color: #BF0638;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 3%;
+}
+
+.arrow img {
+  display: flex;
+  width: 200px;
+  margin-left: -50px;
+}
 
 /*# sourceMappingURL=style.css.map */

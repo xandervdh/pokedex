@@ -11,10 +11,10 @@ body {
 
 .search {
   &-container {
-    background: rgb(237,113,101); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(237,113,101,1) 80%, rgba(103,104,108,1) 81%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(237,113,101,1) 80%,rgba(103,104,108,1) 81%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(237,113,101,1) 80%,rgba(103,104,108,1) 81%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: rgb(237, 113, 101); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(237, 113, 101, 1) 80%, rgba(103, 104, 108, 1) 81%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(237, 113, 101, 1) 80%, rgba(103, 104, 108, 1) 81%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(237, 113, 101, 1) 80%, rgba(103, 104, 108, 1) 81%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     display: inline-block;
 
     margin: 20px;
@@ -72,10 +72,10 @@ body {
     }
 
     &-lg {
-      background: rgb(168,242,251); /* Old browsers */
+      background: rgb(168, 242, 251); /* Old browsers */
       //background: -moz-radial-gradient(center, ellipse cover, rgba(168,242,251,1) 0%, rgba(13,241,252,1) 50%, rgba(14,188,212,1) 100%); /* FF3.6-15 */
       //background: -webkit-radial-gradient(center, ellipse cover, rgba(168,242,251,1) 0%,rgba(13,241,252,1) 50%,rgba(14,188,212,1) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: radial-gradient(ellipse at center, rgba(168,242,251,1) 0%,rgba(13,241,252,1) 50%,rgba(14,188,212,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: radial-gradient(ellipse at center, rgba(168, 242, 251, 1) 0%, rgba(13, 241, 252, 1) 50%, rgba(14, 188, 212, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       border-radius: 50%;
       border-top: 5px solid white;
       border-right: 5px solid white;
@@ -99,24 +99,24 @@ body {
       width: 25px;
 
       &.one {
-        background: rgb(237,55,67); /* Old browsers */
+        background: rgb(237, 55, 67); /* Old browsers */
         //background: -moz-radial-gradient(center, ellipse cover, rgba(237,55,67,1) 0%, rgba(170,5,21,1) 100%); /* FF3.6-15 */
         //background: -webkit-radial-gradient(center, ellipse cover, rgba(237,55,67,1) 0%,rgba(170,5,21,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: radial-gradient(ellipse at center, rgba(237,55,67,1) 0%,rgba(170,5,21,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: radial-gradient(ellipse at center, rgba(237, 55, 67, 1) 0%, rgba(170, 5, 21, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       }
 
       &.two {
-        background: rgb(222,226,90); /* Old browsers */
+        background: rgb(222, 226, 90); /* Old browsers */
         //background: -moz-radial-gradient(center, ellipse cover, rgba(222,226,90,1) 0%, rgba(142,153,59,1) 100%); /* FF3.6-15 */
         //background: -webkit-radial-gradient(center, ellipse cover, rgba(222,226,90,1) 0%,rgba(142,153,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: radial-gradient(ellipse at center, rgba(222,226,90,1) 0%,rgba(142,153,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: radial-gradient(ellipse at center, rgba(222, 226, 90, 1) 0%, rgba(142, 153, 59, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       }
 
       &.three {
-        background: rgb(169,247,76); /* Old browsers */
+        background: rgb(169, 247, 76); /* Old browsers */
         //background: -moz-radial-gradient(center, ellipse cover, rgba(169,247,76,1) 0%, rgba(102,166,56,1) 100%); /* FF3.6-15 */
         //background: -webkit-radial-gradient(center, ellipse cover, rgba(169,247,76,1) 0%,rgba(102,166,56,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: radial-gradient(ellipse at center, rgba(169,247,76,1) 0%,rgba(102,166,56,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: radial-gradient(ellipse at center, rgba(169, 247, 76, 1) 0%, rgba(102, 166, 56, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       }
     }
   }
@@ -135,7 +135,7 @@ body {
     align-items: center;
 
     &:before {
-      content:' ';
+      content: ' ';
       left: -20px;
       top: 275px;
       position: absolute;
@@ -147,7 +147,8 @@ body {
 
     &-cut {
       position: absolute;
-      top: 370px; right: 860px;
+      top: 370px;
+      right: 860px;
       border-top: 80px solid transparent;
       border-left: 80px solid $red;
       z-index: 1;
@@ -460,10 +461,10 @@ body {
     position: absolute;
     top: 425px;
     left: 355px;
-    background: rgb(199,189,118); /* Old browsers */
+    background: rgb(199, 189, 118); /* Old browsers */
     //background: -moz-radial-gradient(center, ellipse cover, rgba(199,189,118,1) 1%, rgba(146,135,79,1) 100%); /* FF3.6-15 */
     //background: -webkit-radial-gradient(center, ellipse cover, rgba(199,189,118,1) 1%,rgba(146,135,79,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, rgba(199,189,118,1) 1%,rgba(146,135,79,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: radial-gradient(ellipse at center, rgba(199, 189, 118, 1) 1%, rgba(146, 135, 79, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
 
   &-blackButtons {
@@ -496,13 +497,29 @@ body {
 
 @keyframes blink {
   0% {
-    -webkit-box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
-    -moz-box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
-    box-shadow: 0px 0px 17px 7px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 0px 17px 7px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 17px 7px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 17px 7px rgba(255, 255, 255, 1);
   }
   100% {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
   }
+}
+
+#pokedex-bottom {
+  display: none;
+  background-color: #BF0638;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 3%;
+}
+
+.arrow img{
+  display: flex;
+  width: 200px;
+  margin-left: -50px;
 }

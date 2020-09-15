@@ -34,7 +34,7 @@
             target.querySelector(".pokedex-screen-image").setAttribute("src", data.sprites.front_default);
             target.querySelector(".pokedex-screen-image").setAttribute("alt", "sprite of " + data.name);
             if (data.moves.length < 4) {
-                x = 1;
+                x = data.moves.length;
             } else {
                 x = 4;
             }
@@ -64,27 +64,40 @@
     function showEvolution(data){
         let evoChain = [];
         let evoData = data.chain;
-        let evoDetails
+        let evoDetails;
+        let evoPokemon;
+        let pokemon;
 
-        do {
-            evoDetails = evoData['evolution_details'][0];
-            evoChain.push({
-                "species_name": evoData.species.name
-            });
+        if (evoData.evolves_to.length > 1){
+            for (let i = 0; i < evoData.evolves_to.length; i++){
+                evoPokemon = evoData.evolves_to[i].species.name;
+                pokemon = url + evoPokemon;
+                fetchPokemon(pokemon, printEvolution);
+            }
+        } else {
+            do {
+                evoDetails = evoData['evolution_details'][0];
+                evoChain.push({
+                    "species_name": evoData.species.name
+                });
 
-            evoData = evoData['evolves_to'][0];
-        } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+                evoData = evoData['evolves_to'][0];
+            } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
 
 
-        for (let i = 0; i < evoChain.length; i++){
-            let evoPokemon = evoChain[i].species_name;
-            let pokemon = url + evoPokemon;
-            fetchPokemon(pokemon, printEvolution);
+            for (let i = 0; i < evoChain.length; i++){
+                evoPokemon = evoChain[i].species_name;
+                pokemon = url + evoPokemon;
+                fetchPokemon(pokemon, printEvolution);
+            }
+
+
         }
         target_bottom.innerHTML = "";
     }
 
     function printEvolution(data) {
+        target_bottom.style.display = "flex";
         let evolution = document.getElementById("evoTemplate").content.cloneNode(true);
         evolution.querySelector(".evolution_image").setAttribute("src", data.sprites.front_default);
         evolution.querySelector(".evolution_image").setAttribute("alt", "sprite of " + data.name);
