@@ -18,12 +18,11 @@
     })
 
     document.getElementById("evolutions").addEventListener("click", function (){
-        checkInput();
-
+        target_bottom.style.display = "flex";
     })
 
     document.getElementById("stats").addEventListener("click", function (){
-        checkInput();
+        target_bottom.style.display = "none";
     })
 
     function fetchPokemon(input, func) {
