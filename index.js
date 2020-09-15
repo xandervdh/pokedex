@@ -5,15 +5,25 @@
     let target = document.getElementById("target");
     let target_bottom = document.getElementById("pokedex-bottom");
     let url = "https://pokeapi.co/api/v2/pokemon/";
-    let arrow;
+    let evoChain = [];
 
 
     document.getElementById("run").addEventListener("click", function () {
         checkInput();
+        evoChain = [];
         target_bottom.innerHTML = "";
         let pokemon = url + input;
         fetchPokemon(pokemon, appendData);
         moves_target.innerText = "";
+    })
+
+    document.getElementById("evolutions").addEventListener("click", function (){
+        checkInput();
+
+    })
+
+    document.getElementById("stats").addEventListener("click", function (){
+        checkInput();
     })
 
     function fetchPokemon(input, func) {
@@ -63,12 +73,10 @@
     }
 
     function showEvolution(data) {
-        let evoChain = [];
         let evoData = data.chain;
         let evoDetails;
         let evoPokemon;
         let pokemon;
-        let x = 0;
 
         if (evoData.evolves_to.length > 1) {
             for (let i = 0; i < evoData.evolves_to.length; i++) {
@@ -89,12 +97,6 @@
             for (let i = 0; i < evoChain.length; i++) {
                 evoPokemon = evoChain[i].species_name;
                 pokemon = url + evoPokemon;
-                if (x < evoChain.length -1){
-                    arrow = "images/arrow.png";
-                } else {
-                    arrow = "";
-                }
-                x++
                 fetchPokemon(pokemon, printEvolution);
             }
         }
@@ -107,7 +109,6 @@
         evolution.querySelector(".evolution_image").setAttribute("alt", "sprite of " + data.name);
         evolution.querySelector(".evolution_name").innerHTML = data.name;
         evolution.querySelector(".evolution_id").innerHTML = data.id;
-        evolution.querySelector(".arrow_img").setAttribute("src", arrow);
         target_bottom.appendChild(evolution);
     }
 
